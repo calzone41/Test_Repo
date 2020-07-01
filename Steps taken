@@ -1,0 +1,132 @@
+helpful sheets
+https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+
+Created initial directories with source files
+Source/
+    Scripts_1/
+        Source_1_1
+        Source_1_2
+    Scripts_2/
+        Source_2_1
+
+
+Made local git repo
+Test Repo$ git init
+
+
+checked status, noted that all files are untracked
+Test Repo git status
+
+
+added the Source/ dir to the staging environment
+Test Repo$ git add Source/
+
+
+checked status, noted that source files are in staging, but not yet committed
+git status
+
+
+committed files in staging
+git commit -m "first commit with initial source files"
+got failure message because i have not provided any identity information
+
+Added identify information
+git config --global user.name "Cal Gosla III"
+git config --global user.email cbgosla@gmail.com
+
+Can check user info with    git config user.name
+
+
+attempted commit, succesful
+git commit -m "first commit with initial source files"
+
+
+Make modification to source_1_1 file ("modification 1")
+
+add to staging and commit
+git add
+git commit -m "...."
+
+git log shows two commits.
+
+git checkout xxxx to look at first commit
+worked successfully
+
+git checkout master to get back to latest commit
+
+will make branch
+git checkout -b branch_1
+git branch shows i'm in the right branch
+
+modified source 2_1 file in this branch, committed
+added "modification 2"
+
+Note, there is no commit for the creation of the branch.
+
+modified source 2_1 file in branch 1, committed
+added "modificaiton 3"
+all looks good
+
+merging branch_1 into master
+git checkout master
+git merge branch_1
+
+made new branch 2 from master
+modified source 2,1 with modificaiton 4
+committed
+
+switch to master, modify source 1,2 with "modification 5. add, commit.
+now master and branch 2 are different
+will merge
+
+now will make branch, 3, do modificaiton 6 in source 2.1, add, commit
+will switch to makster, do modification 7 in source 2.1, add, committ
+
+noted a merge conflict, corrected the conflict manually in the file
+several backup files were left behind, had to delete manually.
+configured git to use meld as merge tool
+
+need to try merge conflict using meld through git.
+
+success.
+
+pushed to github using
+git remote add origin https://github.com/calzone41/Test_Repo.git
+git push -u origin master
+
+made a new branch, going to attempt to push only branch to remote. made source 3.1
+git checkout -b branch_5
+git add Source/
+git commit -m "brnach 5, mod 11, source 3.1"
+git push -u origin branch_5
+
+on github, it prompted for a pull request, it did it, and it seemed to merge the branch into master, which is not what i wanted, i just wanted it to put the branch onto github.
+going to pull in changes from remote and try again.
+
+git pull origin master
+
+Success
+
+modifing branch 5 again
+
+git push -u origin branch_5
+github shows change, but did not merge to master
+
+create branch 6
+do commit in branch 6
+git push -u origin branch_6
+
+branch 6 shows up in github
+
+modify branch 5 and 6 locally
+
+noticing that when checking out 5 and 6, git sees that my branch is ahead of origin/branch* by x commits. awesome.
+
+git push --all -u
+
+now all branches show up on github.
+
+YAY!
+
+
+
